@@ -24,3 +24,17 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+const Logo = styled(Link)`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  
+  svg {
+    color: #00d4ff;
+  }
+`;
