@@ -146,7 +146,7 @@ const Navbar = () => {
         <NavContainer>
           <Logo to="/">
             <HiCode />
-            <span>YourName</span>
+            <span>FREDRICK RANGARA</span>
           </Logo>
           
           <NavLinks>
