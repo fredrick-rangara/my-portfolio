@@ -9,39 +9,76 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: ${props => props.theme.fonts.main};
+    background-color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
+    line-height: 1.6;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #0a0a0a;
-    color: #fff;
-    overflow-x: hidden;
   }
 
+  /* Selection */
   ::selection {
-    background: #00d4ff;
+    background: ${props => props.theme.colors.primary};
     color: #000;
   }
 
-  /* Custom Scrollbar */
+  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: ${props => props.theme.colors.background};
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #00d4ff;
+    background: ${props => props.theme.colors.primary};
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #0099cc;
+    background: ${props => props.theme.colors.primaryDark};
+  }
+
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Images */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Buttons */
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  /* Utility Classes */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* Animations */
@@ -59,6 +96,22 @@ const GlobalStyles = createGlobalStyle`
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
   }
 `;
 

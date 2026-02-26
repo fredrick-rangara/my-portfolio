@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { HiSend, HiCheckCircle, HiExclamationCircle } from 'react-icons/hi';
+import { HiPaperAirplane, HiCheckCircle, HiExclamationCircle } from 'react-icons/hi';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
 
@@ -157,19 +157,17 @@ const ContactForm = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      // Using EmailJS for client-side email sending
-      // Sign up at https://www.emailjs.com/ for free (200 emails/month)
       await emailjs.send(
-        'YOUR_SERVICE_ID',    // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID',   // Replace with your EmailJS template ID
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'your.email@example.com'
+          to_email: 'fredrick.rangara@gmail.com'
         },
-        'YOUR_USER_ID'        // Replace with your EmailJS user ID
+        process.env.REACT_APP_EMAILJS_USER_ID
       );
 
       setStatus({
@@ -271,7 +269,7 @@ const ContactForm = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            {loading ? 'Sending...' : <><HiSend /> Send Message</>}
+            {loading ? 'Sending...' : <><HiPaperAirplane /> Send Message</>}
           </SubmitButton>
         </Form>
       </Container>

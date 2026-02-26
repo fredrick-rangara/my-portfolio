@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { HiExternalLink, HiGithub, HiEye } from 'react-icons/hi';
+import { HiExternalLink, HiEye } from 'react-icons/hi';
+import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Tilt from 'react-tilt';
+import { Tilt } from 'react-tilt';
 
 const Card = styled(motion.div)`
   background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
@@ -136,8 +137,14 @@ const Stats = styled.div`
 const ProjectCard = ({ project }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
+  const tiltOptions = {
+    max: 15,
+    scale: 1.02,
+    speed: 400
+  };
+
   return (
-    <Tilt options={{ max: 15, scale: 1.02 }}>
+    <Tilt options={tiltOptions}>
       <Card
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +163,7 @@ const ProjectCard = ({ project }) => {
               <HiExternalLink />
             </IconButton>
             <IconButton href={project.github} target="_blank" rel="noopener noreferrer">
-              <HiGithub />
+              <FaGithub />
             </IconButton>
             <IconButton as={Link} to={`/project/${project.id}`}>
               <HiEye />
