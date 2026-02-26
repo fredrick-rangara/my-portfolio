@@ -16,3 +16,11 @@ const Nav = styled(motion.nav)`
   transition: all 0.3s ease;
   border-bottom: ${props => props.scrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none'};
 `;
+
+const NavContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
